@@ -31,7 +31,13 @@ module.exports = function (config) {
     },
     singleRun: true,
     reporters: ["progress", "kjhtml"],
-    browsers: ["ChromeHeadless"],
+    browsers: ["ChromeHeadlessCI", "Chrome", "ChromeHeadless"],
     restartOnFileChange: true,
+    customLaunchers: {
+      ChromeHeadlessCI: {
+        base: "ChromeHeadless",
+        flags: ["--no-sandbox"],
+      },
+    },
   });
 };
